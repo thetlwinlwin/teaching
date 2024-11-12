@@ -14,7 +14,7 @@ FUNCTION LinearSearch(NumArr : ARRAY OF INTEGER, TargetVal : INTEGER) RETURN INT
             THEN
                 RETURN Idx
         ENDIF
-    NEXT
+    NEXT Idx
     RETURN -1
 """
 
@@ -23,7 +23,7 @@ FUNCTION LinearSearch(NumArr : ARRAY OF INTEGER, TargetVal : INTEGER) RETURN INT
 Version 2
 
 FUNCTION LinearSearch(NumArr : ARRAY OF INTEGER, TargetVal : INTEGER) RETURN INTEGER
-    DECLARE Index,ArraySize INTEGER
+    DECLARE Index,ArraySize : INTEGER
     DECLARE Found BOOLEAN
     Index <- -1
     ArraySize <- LENGTH(NumArr)
