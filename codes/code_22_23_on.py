@@ -230,7 +230,11 @@ while width < 1.5 or width > 10.0:
     print("Invalid Input")
     width = float(input("Enter your room Width : "))
 
-area = round(length * width)
+area = length * width
+
+remainder = area % 1
+if remainder > 0:
+    area = int(area) + 1
 
 wood_choice = int(input("Enter Wood Choice 1.Laminate| 2.Pine| 3.Oak : "))
 price_per_sq_m = PRICES[wood_choice - 1]
