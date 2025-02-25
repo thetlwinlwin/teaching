@@ -8,3 +8,6 @@ while not is_finished:
         is_finished = True
     elif to_do not in to_do_list:
         to_do_list.append(to_do)
+
+print("The list is as follow")
+print(to_do_list)
