@@ -1,9 +1,14 @@
-# FOR loop
+# Post-Condition Loop
 
-name = input("Enter ur name : ")
+total = 0
+mark = 0
 
-for i in range(len(name)):
-    character = name[i]
-    char_denary = ord(character)
-    binary = bin(char_denary)
-    print(character, "=>", binary)
+is_loop_ended = False
+
+while not is_loop_ended:
+    mark = int(input("Enter mark -1 to finish : "))
+    total = total + mark
+    if mark == -1:
+        is_loop_ended = True
+
+print("total is", total)
