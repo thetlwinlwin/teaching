@@ -1,7 +1,32 @@
+import pprint
 from random import random
 
-registration = []
-letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ids = []
+ages = []
+names = [
+    "James",
+    "Olivia",
+    "William",
+    "Charlotte",
+    "Benjamin",
+    "Amelia",
+    "Henry",
+    "Harper",
+    "Alexander",
+    "Grace",
+    "Samuel",
+    "Emma",
+    "Daniel",
+    "Lily",
+    "Thomas",
+    "Chloe",
+    "Nathan",
+    "Sophie",
+    "Jack",
+    "Ella"
+]
+pb_times = []
+num_of_runs = []
 
 
 def random_int(start, end):
@@ -13,20 +38,34 @@ def random_int(start, end):
 
 
 for i in range(20):
-    user_info = []
-    first_letter_idx = random_int(0, 25)
-    first_letter = letter[first_letter_idx]
-    second_letter_idx = random_int(0, 25)
-    second_letter = letter[second_letter_idx]
-    name = first_letter + second_letter  # concatenation
-    age = random_int(4, 14)
-    initial_pb = 0
-    initial_num_of_run = 0
-    user_info.append(name)
-    user_info.append(age)
-    user_info.append(initial_pb)
-    user_info.append(initial_num_of_run)
+    # unique id
+    str_i = str(i)
+    if len(str_i) == 1:
+        user_id = '00'+str_i
+    else:
+        user_id = '0'+str_i
+    count = 4
+    total = 0
+    for digit in user_id:
+        total = total + int(digit)*count
+        count = count - 1
 
-    registration.append(user_info)
+    remainder = (total % 11)
+    check_digit = 11 - remainder
+    if check_digit == 10:
+        user_id = user_id + 'x'
+    elif check_digit == 11:
+        user_id = user_id + '0'
+    else:
+        user_id = user_id + str(check_digit)
+    ids.append(user_id)
 
-print(registration)
+    # age
+    user_age = random_int(4, 14)
+    ages.append(user_age)
+
+    # PB time
+    pb_times.append(0)
+
+    # num of runs
+    num_of_runs.append(0)
